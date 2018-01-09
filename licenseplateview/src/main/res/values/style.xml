@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="license_plate_editStyle">
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorMainBlue</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="license_plate_province_textStyle">
+        <item name="android:layout_height">31dp</item>
+        <item name="android:layout_width">26dp</item>
+        <item name="android:background">@drawable/license_plate_keyboard_text_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">6dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+    </style>
+
+    <style name="license_plate_num_textStyle">
+        <item name="android:layout_height">31dp</item>
+        <item name="android:layout_width">26dp</item>
+        <item name="android:background">@drawable/license_plate_keyboard_text_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+
+</resources>

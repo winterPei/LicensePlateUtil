@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorKeyboardBlue">#7DAFFF</color>
+    <color name="colorMainBlue">#7CAFFF</color>
+    <color name="colorKeyboardGray">#CCCCCC</color>
+    <color name="colorCodeGray">#8B99AE</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorKeyboardBg">#CCD0D7</color>
+</resources>

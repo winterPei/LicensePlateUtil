@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|center_horizontal"
+    android:background="@color/colorKeyboardBg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/select_num_100_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="0"
+            />
+
+        <TextView
+            android:id="@+id/select_num_101_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="1"
+            />
+
+        <TextView
+            android:id="@+id/select_num_102_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="2"
+            />
+
+        <TextView
+            android:id="@+id/select_num_103_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="3"
+            />
+
+        <TextView
+            android:id="@+id/select_num_104_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="4"
+            />
+
+        <TextView
+            android:id="@+id/select_num_105_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="5"
+            />
+
+        <TextView
+            android:id="@+id/select_num_106_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="6"/>
+
+        <TextView
+            android:id="@+id/select_num_107_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="7"
+            />
+
+        <TextView
+            android:id="@+id/select_num_108_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="8"
+            />
+
+        <TextView
+            android:id="@+id/select_num_109_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="9"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/select_num_200_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="Q"
+            />
+
+        <TextView
+            android:id="@+id/select_num_201_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="W"
+            />
+
+        <TextView
+            android:id="@+id/select_num_202_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="E"
+            />
+
+        <TextView
+            android:id="@+id/select_num_203_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="R"
+            />
+
+        <TextView
+            android:id="@+id/select_num_204_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="T"
+            />
+
+        <TextView
+            android:id="@+id/select_num_205_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="Y"
+            />
+
+        <TextView
+            android:id="@+id/select_num_206_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="U"/>
+
+        <TextView
+            android:id="@+id/select_num_207_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="P"
+            />
+
+        <TextView
+            android:id="@+id/select_num_208_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="港"
+            />
+
+        <TextView
+            android:id="@+id/select_num_209_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="澳"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/select_num_300_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="A"
+            />
+
+        <TextView
+            android:id="@+id/select_num_301_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="S"
+            />
+
+        <TextView
+            android:id="@+id/select_num_302_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="D"
+            />
+
+        <TextView
+            android:id="@+id/select_num_303_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="F"
+            />
+
+        <TextView
+            android:id="@+id/select_num_304_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="G"
+            />
+
+        <TextView
+            android:id="@+id/select_num_305_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="H"
+            />
+
+        <TextView
+            android:id="@+id/select_num_306_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="J"/>
+
+        <TextView
+            android:id="@+id/select_num_307_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="K"
+            />
+
+        <TextView
+            android:id="@+id/select_num_308_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="L"
+            />
+
+        <TextView
+            android:id="@+id/select_num_309_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="学"
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/select_num_400_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="Z"
+            />
+
+        <TextView
+            android:id="@+id/select_num_401_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="X"
+            />
+
+        <TextView
+            android:id="@+id/select_num_402_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="C"
+            />
+
+        <TextView
+            android:id="@+id/select_num_403_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="V"
+            />
+
+        <TextView
+            android:id="@+id/select_num_404_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="B"
+            />
+
+        <TextView
+            android:id="@+id/select_num_405_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="N"
+            />
+
+        <TextView
+            android:id="@+id/select_num_406_tv"
+            style="@style/license_plate_num_textStyle"
+            android:text="M"/>
+
+        <TextView
+            android:id="@+id/select_num_delete_tv"
+            android:layout_width="70dp"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="5dp"
+            android:drawableRight="@drawable/icon_keyboard_delete"
+            android:text=""
+            />
+    </LinearLayout>
+</LinearLayout>
