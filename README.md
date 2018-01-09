@@ -48,7 +48,7 @@
         
 </RelativeLayout>
 ```
-#####很重要！！！说明：因为需要自定义的键盘，所以在代码中需要动态添加布局，LicensePlateView 需要一个 RelativeLayout 作为根布局作为父容器。
+#### 很重要！！！说明：因为需要自定义的键盘，所以在代码中需要动态添加布局，LicensePlateView 需要一个 RelativeLayout 作为根布局作为父容器。
 
 4、在 Activity 或 Fragment 中添加代码
 
