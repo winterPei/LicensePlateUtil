@@ -1,4 +1,4 @@
-package com.pxy;
+package com.winterpei;
 
 import android.app.Activity;
 import android.content.Context;
@@ -17,6 +17,8 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.pxy.R;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

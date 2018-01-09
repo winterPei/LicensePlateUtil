@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     >
 
-    <com.pxy.LicensePlateView
+    <com.winterpei.LicensePlateView
         android:id="@+id/activity_lpv"
         android:layout_width="match_parent"
         android:layout_height="48dp"
