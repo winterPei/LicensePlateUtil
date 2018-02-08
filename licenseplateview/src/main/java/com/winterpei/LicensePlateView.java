@@ -18,8 +18,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pxy.R;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -36,8 +34,7 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
     private View mNumView;
     private View mProvinceView;
 
-    private int count = 7;
-    private int lastPosition;
+    private int count = 0;
     private int updateViewPosition;
     private static int ITEM_VIEW_COUNT = 7;
 
@@ -160,15 +157,9 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
                     }
                     for (int i = 0; i < stringBuffer.length(); i++) {
                         TextViews[i].setText(String.valueOf(inputContent.charAt(i)));
-                        TextViews[0].setBackgroundResource(R.drawable.license_plate_first_view_blue);
-                        if (i <= ITEM_VIEW_COUNT - 3) {
-                            TextViews[i + 1].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                        }
-                        if (i == ITEM_VIEW_COUNT - 2) {
-                            TextViews[i + 1].setBackgroundResource(R.drawable.license_plate_last_view_blue);
-                        }
+                        TextViews[i].setTextColor(onSetTextColor(R.color.colorBlack));
                     }
-
+                    setTextViewsBackground(count);
                 }
             }
         });
@@ -186,6 +177,13 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
                 return false;
             }
         });
+    }
+
+    /**
+     * 设置框内字体颜色
+     */
+    public int onSetTextColor(int resId) {
+        return resId;
     }
 
     public void setKeyboardContainerLayout(RelativeLayout layout) {
@@ -218,23 +216,16 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
      */
     public boolean showLastView() {
         TextViews[7].setVisibility(VISIBLE);
-        if (TextUtils.isEmpty(TextViews[6].getText())) {
-            TextViews[6].setBackgroundResource(R.drawable.license_plate_mid_view_bg);
-            TextViews[7].setBackgroundResource(R.drawable.license_plate_last_view_bg);
-        } else {
-            TextViews[6].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-            TextViews[7].setBackgroundResource(R.drawable.license_plate_last_view_blue);
+        ITEM_VIEW_COUNT = 8;
+        if (!TextUtils.isEmpty(TextViews[6].getText())) {
             mProvinceView.setVisibility(GONE);
             mNumView.setVisibility(VISIBLE);
         }
-        if (updateViewPosition == 6) {
-            if (!isUpdateView) {
-                TextViews[5].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-            } else {
-                TextViews[6].setBackgroundResource(R.drawable.license_plate_choice_view_bg);
-            }
+        if (isUpdateView) {
+            setTextViewsBackground(updateViewPosition);
+        } else {
+            setTextViewsBackground(count);
         }
-        ITEM_VIEW_COUNT = 8;
         return true;
     }
 
@@ -243,18 +234,22 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
      */
     public boolean hideLastView() {
         TextViews[7].setVisibility(GONE);
+        ITEM_VIEW_COUNT = 7;
         if (stringBuffer.length() == 8 || stringBuffer.length() == 7) {
             TextViews[7].setText("");
             stringBuffer.delete(7, 8);
-            TextViews[6].setBackgroundResource(R.drawable.license_plate_last_view_blue);
             inputContent = stringBuffer.toString();
             count = stringBuffer.length();
             inputListener.inputComplete(inputContent);
-            mNumView.setVisibility(GONE);
-        } else {
-            TextViews[6].setBackgroundResource(R.drawable.license_plate_last_view_bg);
+            if (!isUpdateView) {
+                mNumView.setVisibility(GONE);
+            }
         }
-        ITEM_VIEW_COUNT = 7;
+        if (isUpdateView) {
+            setTextViewsBackground(updateViewPosition);
+        } else {
+            setTextViewsBackground(count);
+        }
         return false;
     }
 
@@ -274,13 +269,7 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
             }
             inputContent = stringBuffer.toString();
             TextViews[stringBuffer.length()].setText("");
-            if (stringBuffer.length() < ITEM_VIEW_COUNT - 2) {
-                TextViews[stringBuffer.length() + 1].setBackgroundResource(R.drawable.license_plate_mid_view_bg);
-            }
-            if (stringBuffer.length() == ITEM_VIEW_COUNT - 2) {
-                TextViews[stringBuffer.length()].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                TextViews[stringBuffer.length() + 1].setBackgroundResource(R.drawable.license_plate_last_view_bg);
-            }
+            setTextViewsBackground(count);
             //有删除就通知manger
             inputListener.deleteContent();
         }
@@ -358,38 +347,28 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
                 editText.setText(content);
             } else {
                 onKeyDelete();
+                setTextViewsEnable(true);
             }
         } else {
             if (!TextUtils.isEmpty(content)) {
                 stringBuffer.replace(updateViewPosition, updateViewPosition + 1, content);
                 isUpdateView = !isUpdateView;
+                setTextViewsEnable(true);
             } else {
                 TextViews[updateViewPosition].setText(content);
                 if (updateViewPosition + 1 == ITEM_VIEW_COUNT) {
                     isUpdateView = !isUpdateView;
                     stringBuffer.delete(updateViewPosition, updateViewPosition + 1);
-                    TextViews[updateViewPosition - 1].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                    TextViews[updateViewPosition].setBackgroundResource(R.drawable.license_plate_last_view_blue);
                     count--;
                 }
                 inputListener.deleteContent();
+                setTextViewsEnable(false);
                 return;
             }
             TextViews[updateViewPosition].setText(content);
             inputContent = stringBuffer.toString();
             count = stringBuffer.length();
-            if (updateViewPosition == 0) {
-                TextViews[0].setBackgroundResource(R.drawable.license_plate_first_view_blue);
-            } else if (updateViewPosition == 1) {
-                TextViews[0].setBackgroundResource(R.drawable.license_plate_first_view_blue);
-                TextViews[updateViewPosition].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-            } else if (updateViewPosition == ITEM_VIEW_COUNT - 1) {
-                TextViews[updateViewPosition - 1].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                TextViews[updateViewPosition].setBackgroundResource(R.drawable.license_plate_last_view_blue);
-            } else {
-                TextViews[updateViewPosition - 1].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                TextViews[updateViewPosition].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-            }
+            setTextViewsBackground(count);
             //切换数字输入
             mProvinceView.setVisibility(GONE);
             mNumView.setVisibility(VISIBLE);
@@ -422,45 +401,15 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
                 for (int i = 0; i < stringBuffer.length(); i++) {
                     if (viewId == VIEW_IDS[i]) {
                         updateViewPosition = i;
-                        if (isUpdateView) {
-                            if (lastPosition == 0) {
-                                TextViews[lastPosition].setBackgroundResource(R.drawable.license_plate_first_view_blue);
-                            } else if (lastPosition == 1) {
-                                TextViews[lastPosition - 1].setBackgroundResource(R.drawable.license_plate_first_view_blue);
-                                TextViews[lastPosition].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                            } else if (lastPosition < ITEM_VIEW_COUNT - 1) {
-                                TextViews[lastPosition - 1].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                                TextViews[lastPosition].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                            } else {
-                                TextViews[lastPosition - 1].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
-                                TextViews[lastPosition].setBackgroundResource(R.drawable.license_plate_last_view_blue);
-                            }
-                        }
                         if (i == 0) {
-                            TextViews[i].setBackgroundResource(R.drawable.license_plate_choice_first_bg);
-                            isUpdateView = true;
                             mProvinceView.setVisibility(VISIBLE);
                             mNumView.setVisibility(GONE);
-                        } else if (i == 1) {
-                            TextViews[i - 1].setBackgroundResource(R.drawable.license_plate_second_choice_first_blue);
-                            TextViews[i].setBackgroundResource(R.drawable.license_plate_choice_view_bg);
-                            isUpdateView = true;
-                            mProvinceView.setVisibility(GONE);
-                            mNumView.setVisibility(VISIBLE);
-                        } else if (i < ITEM_VIEW_COUNT - 1 && i > 1) {
-                            TextViews[i - 1].setBackgroundResource(R.drawable.license_plate_before_view_bg);
-                            TextViews[i].setBackgroundResource(R.drawable.license_plate_choice_view_bg);
-                            isUpdateView = true;
-                            mProvinceView.setVisibility(GONE);
-                            mNumView.setVisibility(VISIBLE);
                         } else {
-                            TextViews[i - 1].setBackgroundResource(R.drawable.license_plate_before_view_bg);
-                            TextViews[i].setBackgroundResource(R.drawable.license_plate_choice_last_bg);
-                            isUpdateView = true;
                             mProvinceView.setVisibility(GONE);
                             mNumView.setVisibility(VISIBLE);
                         }
-                        lastPosition = i;
+                        isUpdateView = true;
+                        setTextViewsBackground(i);
                     }
                 }
             }
@@ -468,6 +417,57 @@ public class LicensePlateView extends RelativeLayout implements View.OnClickList
         }
 
     }
+
+    /**
+     * 当修改选中的某个号码，其他数字不能被选中，防止只改变显示，造成数据错误
+     */
+    private void setTextViewsEnable(boolean enabled) {
+        for (int i = 0; i < TextViews.length; i++) {
+            TextViews[i].setEnabled(enabled);
+        }
+    }
+
+    private void setTextViewsBackground(int position) {
+        //第一个框的样式
+        if (position == 0) {
+            TextViews[0].setBackgroundResource(R.drawable.license_plate_first_view_blue);
+        } else {
+            TextViews[0].setBackgroundResource(R.drawable.license_plate_first_view_all_gray);
+        }
+        //从第二个开始，到倒数第二个
+        //根据点击选中效果，设置两边的样式
+        if (position < ITEM_VIEW_COUNT - 2 && position >= 1) {
+            for (int i = 1; i < ITEM_VIEW_COUNT - 2; i++) {
+                TextViews[i].setBackgroundResource(R.drawable.license_plate_view_right_gray);
+            }
+            if (position == 1) {
+                TextViews[position - 1].setBackgroundResource(R.drawable.license_plate_first_view_gray);
+            } else {
+                TextViews[position - 1].setBackgroundResource(R.drawable.license_plate_view_half_gray);
+            }
+            TextViews[position].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
+        } else {
+            for (int i = 1; i < ITEM_VIEW_COUNT - 2; i++) {
+                TextViews[i].setBackgroundResource(R.drawable.license_plate_view_right_gray);
+            }
+        }
+        //倒数第二个框的样式，根据选中的效果，设置前后两个框的样式
+        if (position == ITEM_VIEW_COUNT - 2) {
+            TextViews[position].setBackgroundResource(R.drawable.license_plate_mid_view_blue);
+            TextViews[position + 1].setBackgroundResource(R.drawable.license_plate_last_view_bg);
+            TextViews[position - 1].setBackgroundResource(R.drawable.license_plate_view_half_gray);
+        } else {
+            TextViews[ITEM_VIEW_COUNT - 2].setBackgroundResource(R.drawable.license_plate_mid_view_bg);
+        }
+        //最后一个框的样式，根据选中的样式，前面一个样式需要改变
+        if (position == ITEM_VIEW_COUNT - 1) {
+            TextViews[position].setBackgroundResource(R.drawable.license_plate_last_view_blue);
+            TextViews[position - 1].setBackgroundResource(R.drawable.license_plate_view_half_gray);
+        } else {
+            TextViews[ITEM_VIEW_COUNT - 1].setBackgroundResource(R.drawable.license_plate_last_view_bg);
+        }
+    }
+
 
     /**
      * 禁用系统软键盘

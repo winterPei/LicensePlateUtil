@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal">
 
         <TextView
@@ -83,8 +83,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="9dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
         android:orientation="horizontal">
 
         <TextView
@@ -154,8 +154,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="9dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
         android:orientation="horizontal">
 
         <TextView
@@ -225,9 +225,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="9dp"
+        android:layout_marginLeft="3dp"
         android:orientation="horizontal">
 
         <TextView
@@ -273,11 +271,12 @@
 
         <TextView
             android:id="@+id/select_num_delete_tv"
-            android:layout_width="70dp"
-            android:layout_height="33dp"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="33dp"
             android:layout_marginRight="5dp"
+            android:layout_weight="3"
             android:drawableRight="@drawable/icon_keyboard_delete"
             android:text=""
             />

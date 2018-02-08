@@ -2,9 +2,7 @@ package com.winterpei.licenseplateutil;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RelativeLayout;
-import com.pxy.licenseplateutil.R;
 import com.winterpei.LicensePlateView;
 
 public class MainActivity extends AppCompatActivity implements LicensePlateView.InputListener {
@@ -22,11 +20,13 @@ public class MainActivity extends AppCompatActivity implements LicensePlateView.
 
         mPlateView.setKeyboardContainerLayout(mContainer);
         mPlateView.showLastView();
+        mPlateView.hideLastView();
+        mPlateView.onSetTextColor(R.color.colorAccent);
     }
 
     @Override
     public void inputComplete(String content) {
-        Log.d("MainActivity", content.toString());
+
     }
 
     @Override

@@ -12,9 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:orientation="horizontal">
 
         <TextView
@@ -77,8 +75,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:orientation="horizontal">
 
 
@@ -143,8 +139,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="28dp"
-        android:layout_marginRight="28dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="horizontal"
         >
 
@@ -201,9 +197,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="90dp"
-        android:layout_marginRight="14dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="5dp"
         android:orientation="horizontal"
         >
 
@@ -239,8 +234,8 @@
 
         <TextView
             android:id="@+id/select_province_delete_tv"
-            android:layout_width="66dp"
-            android:layout_height="33dp"
+            android:layout_width="75dp"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:drawableRight="@drawable/icon_keyboard_delete"
