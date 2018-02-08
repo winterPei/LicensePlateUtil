@@ -2,7 +2,7 @@
 
 效果如下：
 
-![](http://ww1.sinaimg.cn/mw690/78e0e0dfgy1fn994r669bg20go0tne1i.gif)
+![](http://ww1.sinaimg.cn/large/78e0e0dfgy1fo8wb1v6qbg20go0tnkbn.gif)
 
 ### 功能说明
 
@@ -12,6 +12,7 @@
  * 输入监听包含输入完成、删除内容
  * 获取输入的内容
  * 清空输入内容
+ * 设置输入框字体颜色
  
 ### 使用说明
  
@@ -68,6 +69,9 @@
   //输入七位和八位车牌号码的方法
   mPlateView.showLastView();
   mPlateView.hideLastView();
+  
+  //设置输入框字体颜色
+  mPlateView.onSetTextColor(R.color.colorAccent);
   
   //两个需要实现的方法
   @Override
