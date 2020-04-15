@@ -81,6 +81,3 @@
   public void deleteContent() {}
   
 ```
-
-#### 如有建议请`联系我`
-#### 联系方式：QQ `583292653` WeChat `peixingyang001`
